@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Planes y aranceles · Essenza</title>
+<meta name="description" content="Aranceles mensuales de gym, pileta, pilates y yoga en Essenza, Colonia del Sacramento.">
+<meta name="theme-color" content="#11376B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="site" data-precios="completos">
+<header class="header">
+  <nav class="wrap nav" aria-label="Principal">
+    <a class="nav__logo" href="index.html" aria-label="Essenza, inicio"><img src="img/logo-essenza.png" alt="Essenza" width="160" height="38"></a>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <div class="nav__menu" id="menu">
+      <a class="nav__link" href="index.html#actividades">Actividades</a>
+      <a class="nav__link" href="planes.html" aria-current="page">Planes</a>
+      <a class="nav__link" href="index.html#colonia">Colonia de vacaciones</a>
+      <a class="nav__link" href="index.html#cumples">Cumpleaños</a>
+      <a class="nav__link" href="#contacto">Contacto</a>
+      <a class="btn btn--primary btn--sm" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Agendá una clase de prueba</a>
+    </div>
+  </nav>
+</header>
+<main>
+<section class="wrap" style="padding-block: 72px 40px">
+  <div class="stack" style="gap: 20px">
+    <p class="eyebrow fade-in">Aranceles mensuales</p>
+    <h1 class="h1 split"><span class="w"><span style="animation-delay: .05s">Planes</span></span> <span class="w"><span class="acento" style="animation-delay: .14s">para</span></span> <span class="w"><span class="acento" style="animation-delay: .21s">moverte</span></span></h1>
+    <p class="lead fade-in p-num">Elegí una actividad o combiná varias. Valores mensuales en pesos uruguayos.</p>
+    <p class="lead fade-in p-hide">Elegí una actividad o combiná varias. Escribinos y te pasamos los valores y horarios vigentes.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 24px">
+  <div class="wrap stack" style="gap: 28px">
+    <div class="chips" role="tablist" aria-label="Elegí un espacio" data-reveal="1"><button class="chip" type="button" role="tab" id="tab-pileta" aria-selected="true" aria-controls="panel-pileta" tabindex="0"><span class="chip__dot" style="background: #A2E5E8" aria-hidden="true"></span>Pileta</button><button class="chip" type="button" role="tab" id="tab-gym" aria-selected="false" aria-controls="panel-gym" tabindex="-1"><span class="chip__dot" style="background: #11376B" aria-hidden="true"></span>Gym</button><button class="chip" type="button" role="tab" id="tab-pilates" aria-selected="false" aria-controls="panel-pilates" tabindex="-1"><span class="chip__dot" style="background: #FFF1A1" aria-hidden="true"></span>Pilates</button><button class="chip" type="button" role="tab" id="tab-domo" aria-selected="false" aria-controls="panel-domo" tabindex="-1"><span class="chip__dot" style="background: #CBF1BA" aria-hidden="true"></span>Domo</button></div>
+    <div data-reveal="2">
+<div class="price-grid" id="panel-pileta" role="tabpanel" aria-labelledby="tab-pileta"><div class="price-card"><div class="price-card__head bg-piscina"><span>Con profesor</span><strong>Aquagym y natación</strong></div><div class="price-card__body"><div class="rows p-full"><div><span>1 vez por semana</span><b>$1.800</b></div><div><span>2 veces por semana</span><b>$2.650</b></div><div><span>3 veces por semana</span><b>$3.100</b></div></div><div class="rows p-from"><div><span>desde</span><b>$1.800</b></div></div><div class="rows p-hide"><div><span>Valores</span><b>Consultá</b></div></div><a class="link-arrow" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Quiero empezar <span class="arrow" aria-hidden="true">→</span></a></div></div><div class="price-card"><div class="price-card__head bg-piscina"><span>Sin profesor</span><strong>Pile libre</strong></div><div class="price-card__body"><div class="rows p-full"><div><span>2 veces por semana</span><b>$1.500</b></div><div><span>3 veces por semana</span><b>$2.100</b></div></div><div class="rows p-from"><div><span>desde</span><b>$1.500</b></div></div><div class="rows p-hide"><div><span>Valores</span><b>Consultá</b></div></div><a class="link-arrow" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Quiero empezar <span class="arrow" aria-hidden="true">→</span></a></div></div><div class="price-card"><div class="price-card__head bg-piscina"><span>Niños, bebés y familias</span><strong>Natación infantil y pile familiar</strong></div><div class="price-card__body"><div class="rows"><div><span>Valores</span><b>Consultá</b></div></div><a class="link-arrow" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Quiero empezar <span class="arrow" aria-hidden="true">→</span></a></div></div></div>
+<div class="price-grid" id="panel-gym" role="tabpanel" aria-labelledby="tab-gym" hidden><div class="price-card"><div class="price-card__head bg-gym"><span>Con profesor</span><strong>Gym</strong></div><div class="price-card__body"><div class="rows p-full"><div><span>2 veces por semana</span><b>$1.800</b></div><div><span>3 veces por semana</span><b>$2.200</b></div><div><span>4 veces por semana</span><b>$2.500</b></div></div><div class="rows p-from"><div><span>desde</span><b>$1.800</b></div></div><div class="rows p-hide"><div><span>Valores</span><b>Consultá</b></div></div><a class="link-arrow" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Quiero empezar <span class="arrow" aria-hidden="true">→</span></a></div></div><div class="price-card"><div class="price-card__head bg-gym"><span>Sin profesor</span><strong>Gym libre</strong></div><div class="price-card__body"><div class="rows p-full"><div><span>Mensual</span><b>$1.500</b></div></div><div class="rows p-from"><div><span>desde</span><b>$1.500</b></div></div><div class="rows p-hide"><div><span>Valores</span><b>Consultá</b></div></div><a class="link-arrow" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Quiero empezar <span class="arrow" aria-hidden="true">→</span></a></div></div><div class="price-card"><div class="price-card__head bg-gym"><span>En colchoneta</span><strong>Pilates Mat</strong></div><div class="price-card__body"><div class="rows p-full"><div><span>2 veces por semana</span><b>$1.900</b></div><div><span>3 veces por semana</span><b>$2.600</b></div></div><div class="rows p-from"><div><span>desde</span><b>$1.900</b></div></div><div class="rows p-hide"><div><span>Valores</span><b>Consultá</b></div></div><a class="link-arrow" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Quiero empezar <span class="arrow" aria-hidden="true">→</span></a></div></div><div class="price-card"><div class="price-card__head bg-gym"><span>+50 y niños</span><strong>Gym +50 y clases para niños</strong></div><div class="price-card__body"><div class="rows"><div><span>Valores</span><b>Consultá</b></div></div><a class="link-arrow" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Quiero empezar <span class="arrow" aria-hidden="true">→</span></a></div></div></div>
+<div class="price-grid" id="panel-pilates" role="tabpanel" aria-labelledby="tab-pilates" hidden><div class="price-card"><div class="price-card__head bg-pilates"><span>Formato studio</span><strong>Pilates Studio</strong></div><div class="price-card__body"><div class="rows p-full"><div><span>1 vez por semana</span><b>$2.200</b></div><div><span>2 veces por semana</span><b>$3.200</b></div><div><span>3 veces por semana</span><b>$4.500</b></div></div><div class="rows p-from"><div><span>desde</span><b>$2.200</b></div></div><div class="rows p-hide"><div><span>Valores</span><b>Consultá</b></div></div><a class="link-arrow" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Quiero empezar <span class="arrow" aria-hidden="true">→</span></a></div></div><div class="price-card"><div class="price-card__head bg-pilates"><span>Máquina</span><strong>Pilates Reformer</strong></div><div class="price-card__body"><div class="rows p-full"><div><span>1 vez por semana</span><b>$2.000</b></div><div><span>2 veces por semana</span><b>$3.000</b></div></div><div class="rows p-from"><div><span>desde</span><b>$2.000</b></div></div><div class="rows p-hide"><div><span>Valores</span><b>Consultá</b></div></div><a class="link-arrow" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Quiero empezar <span class="arrow" aria-hidden="true">→</span></a></div></div></div>
+<div class="price-grid" id="panel-domo" role="tabpanel" aria-labelledby="tab-domo" hidden><div class="price-card"><div class="price-card__head bg-domo"><span>Adultos</span><strong>Yoga y stretching</strong></div><div class="price-card__body"><div class="rows"><div><span>Valores</span><b>Consultá</b></div></div><a class="link-arrow" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Quiero empezar <span class="arrow" aria-hidden="true">→</span></a></div></div><div class="price-card"><div class="price-card__head bg-domo"><span>Niños</span><strong>Yoga para niños</strong></div><div class="price-card__body"><div class="rows"><div><span>Valores</span><b>Consultá</b></div></div><a class="link-arrow" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Quiero empezar <span class="arrow" aria-hidden="true">→</span></a></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--verde" id="combinar">
+  <div class="wrap combo-grid">
+    <div class="stack" style="gap: 16px" data-reveal="1">
+      <p class="eyebrow" style="color: var(--azul)">Más opciones para moverte</p>
+      <h2 class="h2">Combinar es disfrutar</h2>
+      <p class="lead">Concurriendo a una actividad, podés sumar una segunda propuesta por un precio especial.</p>
+    </div>
+    <div class="table-wrap" data-reveal="2">
+      <table class="table">
+        <caption class="sr-only">Precio especial por sumar una segunda actividad</caption>
+        <thead><tr><th scope="col">Sumá</th><th scope="col">1 vez por semana</th><th scope="col">2 veces por semana</th></tr></thead>
+        <tbody><tr><th scope="row">Gym</th><td><span class="p-num">$500</span><span class="p-hide">Consultá</span></td><td><span class="p-num">$900</span><span class="p-hide">Consultá</span></td></tr><tr><th scope="row">Aquagym</th><td><span class="p-num">$1.000</span><span class="p-hide">Consultá</span></td><td><span class="p-num">$1.800</span><span class="p-hide">Consultá</span></td></tr><tr><th scope="row">Pilates Reformer</th><td><span class="p-num">$1.000</span><span class="p-hide">Consultá</span></td><td><span class="p-num">$1.800</span><span class="p-hide">Consultá</span></td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap stack">
+    <h2 class="h2" data-reveal="1">Beneficios</h2>
+    <div class="benefits">
+      <div class="tile tile--aqua" data-reveal="1"><span class="tile__kicker">Adultos</span><strong>Clase gratis de aquagym los sábados.</strong></div>
+      <div class="tile tile--amarillo" data-reveal="2"><span class="tile__kicker">Niños</span><strong style="color: var(--azul)">Clase gratis de yoga los sábados.</strong></div>
+      <div class="tile tile--naranja" data-reveal="3"><span class="tile__kicker">Celebraciones</span><strong>Descuento en animación de cumpleaños y en alquiler de salón.</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="section--tight" style="padding-top: 0">
+  <div class="wrap stack" style="gap: 16px">
+    <div class="notice" data-reveal="1">
+      <div>
+        <strong>Colonia de vacaciones, cumpleaños, alquiler del salón y del Domo</strong>
+        <span class="muted">También natación para niños y bebés, yoga, stretching y Gym +50: consultá valores y cupos.</span>
+      </div>
+      <a class="btn btn--azul" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Consultar</a>
+    </div>
+    <p class="fine">Valores mensuales en pesos uruguayos. Consultá disponibilidad, horarios, condiciones de inscripción y beneficios vigentes.</p>
+  </div>
+</section>
+
+<section class="section section--azul">
+  <div class="wrap cta-row">
+    <h2 class="h2" data-reveal="1">¿No sabés qué plan te conviene? Te ayudamos a armarlo.</h2>
+    <a class="btn btn--verde" data-reveal="2" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+  </div>
+</section>
+</main>
+<footer class="footer" id="contacto">
+  <div class="wrap footer__grid">
+    <div class="footer__brand" data-reveal="1">
+      <img src="img/logo-essenza-negativo.png" alt="Essenza" width="170" height="40">
+      <p>Somos movimiento.</p>
+      <a class="btn btn--verde" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+    </div>
+    <div class="footer__info" data-reveal="2">
+      <strong>Dónde</strong>
+      <span>[DIRECCIÓN] — Predio del Rowing</span>
+      <span>Colonia del Sacramento</span>
+      <strong>Horario</strong>
+      <span>Lunes a viernes [HORA–HORA]</span>
+      <span>Sábados [HORA–HORA]</span>
+      <strong>Contacto</strong>
+      <span>WhatsApp [NÚMERO]</span>
+      <span>Instagram <a href="https://instagram.com/" target="_blank" rel="noopener">[@USUARIO]</a></span>
+    </div>
+    <div class="footer__map ph--azul" data-reveal="3">
+      <!-- TODO: reemplazar por el iframe de Google Maps del predio -->
+      <span>Mapa (Google Maps)</span>
+    </div>
+  </div>
+  <div class="wrap footer__bottom">
+    <span>© 2026 Essenza</span>
+    <span>Colonia del Sacramento, Uruguay</span>
+  </div>
+</footer>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>
