@@ -26,6 +26,15 @@
   --azul-claro: #E4ECF5;     /* texto sobre azul */
   --azul-linea: #2B5590;
 
+  /* Tintes claros de la paleta, para fondos de sección */
+  --verde-claro: #F1FAEC;
+  --aqua-claro: #EAF8F9;
+  --amarillo-claro: #FFFBE6;
+
+  /* Profundos, solo para degradés de fondo (como en los posteos) */
+  --azul-profundo: #0B2648;
+  --grafito-profundo: #1A1A1A;
+
   /* Tipografía */
   --f: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
@@ -147,24 +156,43 @@ a:hover .arrow { transform: translateX(6px); }
 .stack { display: flex; flex-direction: column; gap: 32px; }
 
 /* ---------- Hero home ---------- */
-.hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 56px; align-items: center; padding-block: 64px 104px; }
-.hero__text { display: flex; flex-direction: column; gap: 28px; min-width: 0; }
+/* Foto a todo el ancho con el texto encima. La foto se corre a la derecha
+   para que las personas no queden debajo del texto; el velo azul asegura contraste. */
+.hero {
+  position: relative; overflow: hidden; isolation: isolate;
+  background: var(--azul-profundo); color: var(--blanco);
+  min-height: clamp(560px, 80vh, 780px); display: flex; align-items: center;
+}
+.hero__img { position: absolute; z-index: -2; top: -10%; left: 16%; width: 100%; height: 125%; object-fit: cover; object-position: 50% 30%; }
+.hero__veil {
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(11, 38, 72, .97) 0%, rgba(11, 38, 72, .9) 30%, rgba(17, 55, 107, .45) 56%, rgba(17, 55, 107, 0) 78%),
+    linear-gradient(0deg, rgba(11, 38, 72, .6) 0%, rgba(11, 38, 72, 0) 35%);
+}
+.hero .wrap { width: 100%; padding-block: 96px 120px; }
+.hero__text { display: flex; flex-direction: column; gap: 28px; max-width: 640px; }
+.hero .eyebrow { color: var(--aqua); }
+.hero .h1 { color: var(--blanco); }
+.hero .h1 .acento { color: var(--verde); }
+.hero .lead { color: var(--azul-claro); }
 .hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; }
-.hero__media { position: relative; height: 560px; min-width: 0; }
-.hero__shape { position: absolute; right: 0; top: 0; width: 78%; height: 84%; border-radius: 40px; background: var(--verde); }
-.hero__dot { position: absolute; right: 6%; bottom: -24px; width: 120px; height: 120px; border-radius: 50%; background: var(--aqua); }
-.hero__photo { position: absolute; left: 0; bottom: 0; width: 88%; height: 84%; border-radius: 32px; overflow: hidden; background: var(--aqua); }
-.hero__photo img { width: 100%; height: 100%; object-fit: cover; }
+.btn--ghost { border-color: rgba(255, 255, 255, .8); color: var(--blanco); background: transparent; }
+.btn--ghost:hover { color: var(--blanco); background: rgba(255, 255, 255, .1); }
 .badge {
-  position: absolute; left: -34px; top: 40px; width: 150px; height: 150px; border-radius: 50%;
-  background: var(--azul); display: flex; align-items: center; justify-content: center;
+  position: absolute; z-index: 1; right: max(48px, env(safe-area-inset-right, 0px)); bottom: 56px;
+  width: 150px; height: 150px; border-radius: 50%;
+  background: var(--verde); color: var(--azul); display: flex; align-items: center; justify-content: center;
 }
 .badge svg.badge__ring { position: absolute; inset: 0; }
-@media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; padding-block: 40px 72px; gap: 40px; }
-  .hero__media { height: 420px; }
-  .badge { left: 8px; top: 8px; width: 120px; height: 120px; }
-  .badge svg.badge__ring { width: 120px; height: 120px; }
+@media (max-width: 860px) {
+  .hero { min-height: 0; align-items: flex-end; }
+  .hero__img { left: 0; }
+  .hero__veil { background: linear-gradient(0deg, rgba(11, 38, 72, .95) 0%, rgba(11, 38, 72, .78) 55%, rgba(11, 38, 72, .45) 100%); }
+  .hero .wrap { padding-block: 120px 64px; }
+  .badge { right: 20px; top: 24px; bottom: auto; width: 104px; height: 104px; }
+  .badge svg.badge__ring { width: 104px; height: 104px; }
+  .badge > svg:last-child { width: 22px; height: 22px; }
 }
 
 /* Título palabra por palabra */
@@ -172,7 +200,7 @@ a:hover .arrow { transform: translateX(6px); }
 .split .w > span { display: inline-block; }
 
 /* ---------- Marquesina ---------- */
-.marquee { background: var(--azul); color: var(--verde); overflow: hidden; padding-block: 22px; white-space: nowrap; }
+.marquee { background: var(--verde); color: var(--azul); overflow: hidden; padding-block: 22px; white-space: nowrap; }
 .marquee__track { display: inline-flex; gap: 40px; font-size: clamp(20px, 2.4vw, 28px); font-weight: 600; }
 .marquee__item { display: inline-flex; align-items: center; gap: 40px; }
 .marquee__item svg { fill: var(--naranja); flex: none; }
@@ -223,11 +251,20 @@ a:hover .arrow { transform: translateX(6px); }
 .ticks li::before { content: "+"; color: var(--turquesa); font-weight: 700; }
 .empty { padding: 24px; border: 1.5px dashed var(--borde-fuerte); border-radius: 16px; color: var(--texto-2); }
 
-/* Fondos por espacio */
-.bg-piscina { background: var(--aqua); color: var(--azul); }
-.bg-gym { background: var(--azul); color: var(--blanco); }
-.bg-domo { background: var(--verde); color: var(--azul); }
-.bg-pilates { background: var(--amarillo); color: var(--azul); }
+/* Colores por línea (igual que en los posteos de Instagram)
+   Natación (antes Chapoteando) → turquesa
+   Entrenamiento (antes Coco)   → naranja
+   Bienestar (antes Domo del Río) → azul
+   Pilates                       → amarillo (línea a definir) */
+.bg-natacion { background-color: var(--turquesa); color: var(--blanco); }
+.bg-entrenamiento { background-color: var(--naranja); color: var(--grafito); }
+.bg-bienestar { background-color: var(--azul); color: var(--blanco); }
+.bg-pilates { background-color: var(--amarillo); color: var(--azul); }
+.btn.bg-natacion:hover, .btn.bg-bienestar:hover { color: var(--blanco); }
+.btn.bg-entrenamiento:hover { color: var(--grafito); }
+.btn.bg-pilates:hover { color: var(--azul); }
+.antes { font-size: 12px; letter-spacing: .24em; text-transform: uppercase; font-weight: 500; }
+.antes b { font-weight: 700; }
 
 /* Marcador para foto pendiente */
 .ph { width: 100%; height: 100%; display: flex; align-items: flex-end; padding: 16px; }
@@ -319,10 +356,20 @@ a:hover .arrow { transform: translateX(6px); }
 .pills { display: flex; flex-wrap: wrap; gap: 10px; font-size: 14px; font-weight: 600; }
 .pills span { background: var(--blanco); color: var(--azul); padding: 8px 14px; border-radius: 999px; }
 .pills span.is-gift { background: var(--naranja); color: var(--grafito); }
-.act-hero.bg-gym .crumbs, .act-hero.bg-gym .act-hero__kicker { color: var(--aqua); }
-.act-hero.bg-gym .act-hero__title { color: var(--verde); }
-.act-hero.bg-gym .lead { color: var(--azul-claro); }
-.act-hero:not(.bg-gym) .lead { color: var(--grafito); }
+/* Encabezados por línea: degradé vertical como en los posteos */
+.act-hero { position: relative; isolation: isolate; }
+.hero-natacion { background: linear-gradient(180deg, var(--turquesa) 0%, #0A5A78 60%, var(--azul) 100%); color: var(--blanco); }
+.hero-natacion .act-hero__title { color: var(--verde); }
+.hero-natacion .act-hero__kicker, .hero-natacion .antes { color: var(--aqua); }
+.hero-entrenamiento { background: linear-gradient(180deg, var(--grafito) 0%, var(--grafito-profundo) 100%); color: var(--blanco); }
+.hero-entrenamiento .act-hero__title, .hero-entrenamiento .act-hero__kicker, .hero-entrenamiento .antes b { color: var(--naranja); }
+.hero-bienestar { background: linear-gradient(180deg, var(--azul) 0%, var(--azul-profundo) 100%); color: var(--blanco); }
+.hero-bienestar .act-hero__title, .hero-bienestar .act-hero__kicker { color: var(--aqua); }
+.hero-bienestar .antes b { color: var(--verde); }
+.hero-pilates { background: linear-gradient(180deg, var(--amarillo-claro) 0%, var(--amarillo) 100%); color: var(--azul); }
+.hero-pilates .lead { color: var(--grafito); }
+.act-hero:not(.hero-pilates) .lead { color: var(--azul-claro); }
+.act-hero .crumbs a { color: inherit; }
 @media (max-width: 900px) { .act-hero__grid { grid-template-columns: 1fr; } .act-hero__photo { height: 340px; } }
 
 .panel { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 24px; background: var(--suave); border-radius: 32px; padding: 40px; }
@@ -438,3 +485,59 @@ a:hover .arrow { transform: translateX(6px); }
 @keyframes esFade { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 @keyframes esMarq { to { transform: translateX(-50%); } }
 @keyframes esSpin { to { transform: rotate(360deg); } }
+
+/* =========================================================
+   Texturas — el motivo de hoja rayada de la marca
+   ========================================================= */
+
+/* Fondos claros de sección (tintes de la paleta) */
+.bg-verde-claro { background-color: var(--verde-claro); }
+.bg-aqua-claro { background-color: var(--aqua-claro); }
+.bg-amarillo-claro { background-color: var(--amarillo-claro); }
+.section--azul { background: linear-gradient(180deg, var(--azul) 0%, var(--azul-profundo) 100%); }
+.footer { background: linear-gradient(180deg, var(--azul) 0%, var(--azul-profundo) 100%); }
+
+/* 1 · Rayado fino: líneas de 1px a 135°, casi imperceptibles */
+.tex { position: relative; isolation: isolate; overflow: hidden; --tex-line: rgba(0, 122, 128, .055); }
+.tex::before {
+  content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
+  background-image: repeating-linear-gradient(135deg, var(--tex-line) 0 1px, transparent 1px 15px);
+}
+.section--azul.tex, .footer.tex, .hero-natacion.tex, .hero-entrenamiento.tex, .hero-bienestar.tex { --tex-line: rgba(255, 255, 255, .045); }
+.hero-pilates.tex { --tex-line: rgba(17, 55, 107, .05); }
+
+/* 2 · Hoja rayada: la forma de los posteos, en las esquinas de algunas secciones */
+.leaf {
+  position: absolute; z-index: -1; pointer-events: none;
+  width: clamp(200px, 24vw, 360px); aspect-ratio: 1; max-width: 70vw;
+  background-repeat: no-repeat; background-size: contain;
+}
+.leaf--tl { top: -70px; left: -90px; }
+.leaf--tr { top: -70px; right: -90px; transform: scaleX(-1); }
+.leaf--bl { bottom: -80px; left: -90px; transform: scaleY(-1); }
+.leaf--br { bottom: -80px; right: -90px; transform: scale(-1, -1); }
+.leaf--sm { width: clamp(140px, 15vw, 220px); }
+.leaf--turquesa { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3Cpattern id='r' width='26' height='26' patternUnits='userSpaceOnUse' patternTransform='rotate(35)'%3E%3Crect width='11' height='26' fill='%23007A80'/%3E%3C/pattern%3E%3C/defs%3E%3Cpath d='M10 390C10 170 170 10 390 10C390 230 230 390 10 390Z' fill='url(%23r)'/%3E%3C/svg%3E"); }
+.leaf--verde { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3Cpattern id='r' width='26' height='26' patternUnits='userSpaceOnUse' patternTransform='rotate(35)'%3E%3Crect width='11' height='26' fill='%23CBF1BA'/%3E%3C/pattern%3E%3C/defs%3E%3Cpath d='M10 390C10 170 170 10 390 10C390 230 230 390 10 390Z' fill='url(%23r)'/%3E%3C/svg%3E"); }
+.leaf--aqua { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3Cpattern id='r' width='26' height='26' patternUnits='userSpaceOnUse' patternTransform='rotate(35)'%3E%3Crect width='11' height='26' fill='%23A2E5E8'/%3E%3C/pattern%3E%3C/defs%3E%3Cpath d='M10 390C10 170 170 10 390 10C390 230 230 390 10 390Z' fill='url(%23r)'/%3E%3C/svg%3E"); }
+.leaf--azul { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3Cpattern id='r' width='26' height='26' patternUnits='userSpaceOnUse' patternTransform='rotate(35)'%3E%3Crect width='11' height='26' fill='%2311376B'/%3E%3C/pattern%3E%3C/defs%3E%3Cpath d='M10 390C10 170 170 10 390 10C390 230 230 390 10 390Z' fill='url(%23r)'/%3E%3C/svg%3E"); }
+.leaf--naranja { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3Cpattern id='r' width='26' height='26' patternUnits='userSpaceOnUse' patternTransform='rotate(35)'%3E%3Crect width='11' height='26' fill='%23FF6609'/%3E%3C/pattern%3E%3C/defs%3E%3Cpath d='M10 390C10 170 170 10 390 10C390 230 230 390 10 390Z' fill='url(%23r)'/%3E%3C/svg%3E"); }
+.leaf--soft { opacity: .45; }
+.leaf--faint { opacity: .25; }
+
+/* 3 · Rayado sobre bloques de color (tarjetas, pilares, recuadros) */
+.lined { background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, .13) 0 1px, transparent 1px 13px); }
+.lined-dark { background-image: repeating-linear-gradient(135deg, rgba(17, 55, 107, .06) 0 1px, transparent 1px 13px); }
+
+/* Ajustes de contraste sobre los encabezados de color */
+.act-hero.hero-natacion .lead { color: var(--blanco); }
+.section > .wrap, .act-hero > .wrap, .footer > .wrap { position: relative; }
+
+/* Colonia con foto */
+.tile--photo { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 28px; align-items: stretch; }
+.tile--photo .tile__body { display: flex; flex-direction: column; gap: 16px; }
+.tile__img { border-radius: 22px; overflow: hidden; min-height: 260px; }
+.tile__img img { width: 100%; height: 100%; object-fit: cover; }
+.promo { background: var(--blanco); color: var(--grafito); border-radius: 18px; padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; }
+.promo strong { color: var(--azul); font-size: 17px; }
+@media (max-width: 860px) { .tile--photo { grid-template-columns: 1fr; } .tile__img { min-height: 220px; } }
