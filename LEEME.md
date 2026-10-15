@@ -6,6 +6,7 @@ Sitio sin dependencias: HTML + una hoja de estilos + un JavaScript. Se sube tal 
 
 ```
 index.html              Home
+colonia.html            Colonia de vacaciones (página propia)
 planes.html             Planes y aranceles
 piscina.html            Fichas de actividad (misma plantilla)
 gym.html
@@ -29,11 +30,16 @@ img/                    Logos y fotos
 
 ## Pendiente antes de publicar (buscar `[` y `TODO` en los archivos)
 
-- Número de WhatsApp real: reemplazar `598XXXXXXXX` en todos los HTML.
+- WhatsApp: Natación usa 098 177 013 y Colonia 092 222 841 (datos de los materiales de Chapoteando).
+  Falta el número general de Essenza: reemplazar `598XXXXXXXX` en el resto de los botones.
+- Colonia: valores 2026–2027 y fechas de la temporada (hoy muestra los de 2025–2026 como referencia).
+  La colonia tiene dos ediciones: verano (inscripciones oct–feb) e invierno (vacaciones de julio, inscripciones may–jul).
+  Cambiar el texto de la banda azul de la home (comentario TEMPORADA) según la edición abierta; quitarla en mar–abr y ago–sep.
+  Completar planes, valores, fechas y horarios de la colonia de invierno (hoy con [—]).
+- Beneficios heredados de Chapoteando (plan familiar 20% e invitados): confirmar que sigan vigentes.
 - Dirección, horarios, Instagram, mapa (iframe de Google Maps en el pie).
 - Horarios reales de cada actividad (recomendado: leerlos de una planilla publicada).
 - Fotos reales del predio (las actuales son provisorias, tomadas del PDF). Faltan Domo y Pilates Studio.
 - Logo: `logo-essenza.png` (positivo) es una versión provisoria; reemplazar por la oficial del manual, idealmente en SVG.
-- Natación para embarazadas: confirmar si existe (no figura en la grilla).
 - Precios a confirmar: Reformer ($2.000) más barato que Studio ($2.200); Studio 3 veces ($4.500).
 - Favicon, Open Graph (imagen para compartir en WhatsApp/redes) y Google Analytics.

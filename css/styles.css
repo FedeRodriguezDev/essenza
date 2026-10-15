@@ -541,3 +541,89 @@ a:hover .arrow { transform: translateX(6px); }
 .promo { background: var(--blanco); color: var(--grafito); border-radius: 18px; padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; }
 .promo strong { color: var(--azul); font-size: 17px; }
 @media (max-width: 860px) { .tile--photo { grid-template-columns: 1fr; } .tile__img { min-height: 220px; } }
+
+/* =========================================================
+   Colonia de vacaciones
+   ========================================================= */
+.bg-colonia { background-color: var(--verde); color: var(--azul); }
+.btn.bg-colonia:hover { color: var(--azul); }
+.hero-colonia { background: linear-gradient(180deg, var(--verde-claro) 0%, var(--verde) 100%); color: var(--azul); }
+.hero-colonia .act-hero__title { color: var(--azul); }
+.hero-colonia .act-hero__kicker { color: var(--turquesa); }
+.hero-colonia .lead { color: var(--grafito); }
+.act-hero.hero-colonia .lead { color: var(--grafito); }
+.hero-colonia.tex { --tex-line: rgba(17, 55, 107, .05); }
+.hero-colonia .pills span:not(.is-gift) { background: var(--blanco); }
+
+/* cinta "Inscripciones abiertas" en la tarjeta */
+.card__ribbon { position: absolute; right: 16px; top: 16px; background: var(--naranja); color: var(--grafito); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 7px 12px; border-radius: 999px; }
+
+/* banda de temporada bajo la marquesina */
+.season { display: block; background: var(--azul); color: var(--blanco); text-decoration: none; }
+.season:hover { color: var(--blanco); }
+.season__inner { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 24px; padding-block: 16px; }
+.season__tag { background: var(--naranja); color: var(--grafito); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; }
+.season__text { flex: 1 1 360px; font-size: 15px; color: var(--azul-claro); }
+.season__text b { color: var(--blanco); }
+.season__cta { font-weight: 600; color: var(--verde); }
+.season:hover .arrow { transform: translateX(6px); }
+
+/* dos tarjetas iguales (cumpleaños / alquiler) */
+.duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 760px) { .duo { grid-template-columns: 1fr; } }
+
+/* cifras de la colonia */
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.stats div { display: flex; flex-direction: column; gap: 4px; padding: 8px 0 8px 20px; border-left: 2px solid var(--verde); }
+.stats b { font-size: clamp(44px, 5vw, 64px); line-height: 1; font-weight: 700; color: var(--turquesa); font-variant-numeric: tabular-nums; }
+.stats span { font-size: 15px; color: var(--texto-2); }
+@media (max-width: 760px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* temáticas */
+.themes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.themes .tile { padding: 28px; }
+.themes .tile h3 { font-size: 26px; }
+.themes .ticks { font-size: 15px; margin-top: 6px; }
+.tile--naranja .ticks li::before, .tile--azul-t .ticks li::before { color: inherit; }
+.tile--azul-t { background-color: var(--azul); color: var(--blanco); }
+.tile--azul-t p { color: var(--azul-claro); }
+.tile--verde-t { background-color: var(--verde); color: var(--azul); }
+.tile--verde-t strong { color: var(--azul); }
+@media (max-width: 1000px) { .themes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .themes { grid-template-columns: 1fr; } }
+
+/* bloque destacado con foto */
+.feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 56px; align-items: center; }
+.feature__img { border-radius: 32px; overflow: hidden; aspect-ratio: 1; max-width: 100%; }
+.feature__img img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 860px) { .feature { grid-template-columns: 1fr; gap: 32px; } }
+
+/* horarios y servicios */
+.infos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.info { background: var(--blanco); border: 1px solid var(--borde); border-radius: 20px; padding: 22px 24px; display: flex; flex-direction: column; gap: 6px; }
+.info b { font-size: 22px; color: var(--azul); font-variant-numeric: tabular-nums; }
+.info .muted { font-size: 14px; }
+@media (max-width: 860px) { .infos { grid-template-columns: 1fr; } }
+
+.tag-warn { background: var(--amarillo); color: var(--azul); font-size: 13px; font-weight: 600; padding: 8px 14px; border-radius: 999px; }
+
+/* promo y medios de pago */
+.pay { background-color: var(--verde); border-radius: 32px; padding: 32px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; color: var(--azul); }
+.pay__item { display: flex; flex-direction: column; gap: 6px; }
+.pay__item strong { font-size: 20px; }
+.pay__item span:last-child { font-size: 15px; color: var(--grafito); }
+@media (max-width: 1000px) { .pay { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .pay { grid-template-columns: 1fr; padding: 24px; } }
+
+/* beneficios: 3 arriba + 2 abajo */
+.benefits { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.benefits > * { grid-column: span 2; }
+.benefits > :nth-child(n+4) { grid-column: span 3; }
+@media (max-width: 860px) { .benefits { grid-template-columns: 1fr; } .benefits > *, .benefits > :nth-child(n+4) { grid-column: auto; } }
+.card__foot .link-arrow { white-space: nowrap; }
+
+/* Colonia: dos ediciones y pestañas grandes */
+.chip--lg { min-height: 52px; padding: 12px 24px; font-size: 17px; }
+.edition h3 { font-size: clamp(26px, 2.6vw, 34px); }
+.edition .ticks { margin-top: 4px; }
+.tile--azul-t .ticks li::before { color: var(--verde); }
