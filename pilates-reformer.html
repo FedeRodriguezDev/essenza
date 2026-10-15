@@ -25,7 +25,7 @@
       <a class="nav__link" href="colonia.html">Colonia de vacaciones</a>
       <a class="nav__link" href="index.html#cumples">Cumpleaños</a>
       <a class="nav__link" href="#contacto">Contacto</a>
-      <a class="btn btn--primary btn--sm" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Agendá una clase de prueba</a>
+      <a class="btn btn--primary btn--sm" href="https://wa.me/598XXXXXXXX" data-wa="general" target="_blank" rel="noopener">Agendá una clase de prueba</a>
     </div>
   </nav>
 </header>
@@ -57,12 +57,12 @@
       <div class="panel__main">
         <h3 class="h3" style="font-size: 32px">Adultos</h3>
         <p class="lead" style="font-size: 18px">Clases guiadas en reformer para fortalecer, alinear y moverte mejor.</p>
-        <div class="programs"><div class="program"><strong>Pilates Reformer</strong><p>Entrenamiento guiado en máquina.</p><div class="rows p-full"><div><span>1 vez por semana</span><b>$2.000</b></div><div><span>2 veces por semana</span><b>$3.000</b></div></div><div class="rows p-from"><div><span>desde</span><b>$2.000</b></div></div><div class="rows p-hide"><div><span>Valores</span><b>Consultá</b></div></div></div></div>
+        <div class="programs"><div class="program"><strong>Pilates Reformer</strong><p>Entrenamiento guiado en máquina.</p><div class="rows p-full"><div><span>1 vez por semana</span><b data-precio="pilates-reformer.1-vez-por-semana">$2.000</b></div><div><span>2 veces por semana</span><b data-precio="pilates-reformer.2-veces-por-semana">$3.000</b></div></div><div class="rows p-from"><div><span>desde</span><b data-desde="pilates-reformer">$2.000</b></div></div><div class="rows p-hide"><div><span>Valores</span><b>Consultá</b></div></div></div></div>
       </div>
       <aside class="side">
         <span class="side__label">Beneficios</span>
         <ul class="ticks"><li>Fuerza sin impacto</li><li>Alineación corporal</li><li>Progresión guiada clase a clase</li></ul>
-        <a class="btn btn--primary" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Reservar clase de prueba</a>
+        <a class="btn btn--primary" href="https://wa.me/598XXXXXXXX" data-wa="general" target="_blank" rel="noopener">Reservar clase de prueba</a>
       </aside>
     </div>
     </div>
@@ -71,7 +71,7 @@
 <section class="section--tight" style="padding-top: 0">
   <div class="wrap">
     <div class="band lined-dark" data-reveal="1">
-      <div class="band__text"><strong>Combinar es disfrutar</strong><span>¿Ya venís a otra actividad? Sumá Pilates Reformer<span class="p-num"> desde $1.000 por mes.</span><span class="p-hide"> a precio especial.</span></span></div>
+      <div class="band__text"><strong>Combinar es disfrutar</strong><span>¿Ya venís a otra actividad? Sumá Pilates Reformer<span class="p-num"> desde <span data-desde="combo-reformer">$1.000</span> por mes.</span><span class="p-hide"> a precio especial.</span></span></div>
       <a class="btn btn--azul" href="planes.html#combinar">Ver cómo combinar</a>
     </div>
   </div>
@@ -84,7 +84,7 @@
     </div>
     <!-- TODO: cargar horarios reales. Recomendado: leerlos de una planilla publicada (Google Sheets → CSV). -->
     <div class="table-wrap" data-reveal="2">
-      <table class="table table--wide">
+      <table class="table table--wide" data-horarios="pilates-reformer">
         <caption class="sr-only">Horarios semanales de Pilates Reformer</caption>
         <thead><tr><th scope="col">Hora</th><th scope="col">Lun</th><th scope="col">Mar</th><th scope="col">Mié</th><th scope="col">Jue</th><th scope="col">Vie</th><th scope="col">Sáb</th></tr></thead>
         <tbody><tr><th scope="row">[HH:MM]</th><td>Reformer</td><td>Reformer</td><td>Reformer</td><td>Reformer</td><td>Reformer</td><td>—</td></tr><tr><th scope="row">[HH:MM]</th><td>Reformer</td><td>—</td><td>Reformer</td><td>—</td><td>Reformer</td><td>—</td></tr></tbody>
@@ -103,7 +103,7 @@
   <span class="leaf leaf--br leaf--turquesa leaf--soft" aria-hidden="true"></span>
   <div class="wrap cta-row">
     <h2 class="h2" data-reveal="1">Probá una clase sin compromiso.</h2>
-    <a class="btn btn--verde" data-reveal="2" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+    <a class="btn btn--verde" data-reveal="2" href="https://wa.me/598XXXXXXXX" data-wa="general" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
   </div>
 </section>
 <section class="section--tight">
@@ -119,18 +119,18 @@
     <div class="footer__brand" data-reveal="1">
       <img src="img/logo-essenza-negativo.png" alt="Essenza" width="170" height="40">
       <p>Somos movimiento.</p>
-      <a class="btn btn--verde" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+      <a class="btn btn--verde" href="https://wa.me/598XXXXXXXX" data-wa="general" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
     </div>
     <div class="footer__info" data-reveal="2">
       <strong>Dónde</strong>
-      <span>[DIRECCIÓN] — Predio del Rowing</span>
+      <span><span data-dato="direccion">[DIRECCIÓN]</span> — Predio del Rowing</span>
       <span>Colonia del Sacramento</span>
       <strong>Horario</strong>
-      <span>Lunes a viernes [HORA–HORA]</span>
-      <span>Sábados [HORA–HORA]</span>
+      <span>Lunes a viernes <span data-dato="horario_semana">[HORA–HORA]</span></span>
+      <span>Sábados <span data-dato="horario_sabado">[HORA–HORA]</span></span>
       <strong>Contacto</strong>
-      <span>WhatsApp [NÚMERO]</span>
-      <span>Instagram <a href="https://instagram.com/" target="_blank" rel="noopener">[@USUARIO]</a></span>
+      <span>WhatsApp <span data-dato="whatsapp_texto">[NÚMERO]</span></span>
+      <span>Instagram <a href="https://instagram.com/" target="_blank" rel="noopener" data-dato="instagram">[@USUARIO]</a></span>
     </div>
     <div class="footer__map ph--azul" data-reveal="3">
       <!-- TODO: reemplazar por el iframe de Google Maps del predio -->
@@ -143,6 +143,7 @@
   </div>
 </footer>
 </div>
+<script src="js/datos.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

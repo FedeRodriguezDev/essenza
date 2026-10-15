@@ -1,0 +1,62 @@
+id,plan,frecuencia,precio
+aquagym-natacion.1-vez-por-semana,Piscina · Aquagym y natación,1 vez por semana,1800
+aquagym-natacion.2-veces-por-semana,Piscina · Aquagym y natación,2 veces por semana,2650
+aquagym-natacion.3-veces-por-semana,Piscina · Aquagym y natación,3 veces por semana,3100
+pile-libre.2-veces-por-semana,Piscina · Pile libre,2 veces por semana,1500
+pile-libre.3-veces-por-semana,Piscina · Pile libre,3 veces por semana,2100
+gym-profesor.2-veces-por-semana,Gym · Gym con profesor,2 veces por semana,1800
+gym-profesor.3-veces-por-semana,Gym · Gym con profesor,3 veces por semana,2200
+gym-profesor.4-veces-por-semana,Gym · Gym con profesor,4 veces por semana,2500
+gym-libre.mensual,Gym · Gym libre,Mensual,1500
+pilates-mat.2-veces-por-semana,Gym · Pilates Mat,2 veces por semana,1900
+pilates-mat.3-veces-por-semana,Gym · Pilates Mat,3 veces por semana,2600
+pilates-studio.1-vez-por-semana,Pilates Studio,1 vez por semana,2200
+pilates-studio.2-veces-por-semana,Pilates Studio,2 veces por semana,3200
+pilates-studio.3-veces-por-semana,Pilates Studio,3 veces por semana,4500
+pilates-reformer.1-vez-por-semana,Pilates Reformer,1 vez por semana,2000
+pilates-reformer.2-veces-por-semana,Pilates Reformer,2 veces por semana,3000
+combo-gym.1-vez-por-semana,Combinar · sumar Gym,1 vez por semana,500
+combo-gym.2-veces-por-semana,Combinar · sumar Gym,2 veces por semana,900
+combo-aquagym.1-vez-por-semana,Combinar · sumar Aquagym,1 vez por semana,1000
+combo-aquagym.2-veces-por-semana,Combinar · sumar Aquagym,2 veces por semana,1800
+combo-reformer.1-vez-por-semana,Combinar · sumar Pilates Reformer,1 vez por semana,1000
+combo-reformer.2-veces-por-semana,Combinar · sumar Pilates Reformer,2 veces por semana,1800
+colonia-enero-menores-de-3-anos.por-dia,Colonia verano · Enero · Menores de 3 años,Por día,1050
+colonia-enero-menores-de-3-anos.1-semana,Colonia verano · Enero · Menores de 3 años,1 semana,5500
+colonia-enero-menores-de-3-anos.2-semanas,Colonia verano · Enero · Menores de 3 años,2 semanas,7150
+colonia-enero-menores-de-3-anos.3-semanas,Colonia verano · Enero · Menores de 3 años,3 semanas,8800
+colonia-enero-menores-de-3-anos.4-semanas,Colonia verano · Enero · Menores de 3 años,4 semanas,10100
+colonia-enero-mayores-de-3-anos.por-dia,Colonia verano · Enero · Mayores de 3 años,Por día,850
+colonia-enero-mayores-de-3-anos.1-semana,Colonia verano · Enero · Mayores de 3 años,1 semana,4500
+colonia-enero-mayores-de-3-anos.2-semanas,Colonia verano · Enero · Mayores de 3 años,2 semanas,6150
+colonia-enero-mayores-de-3-anos.3-semanas,Colonia verano · Enero · Mayores de 3 años,3 semanas,7850
+colonia-enero-mayores-de-3-anos.4-semanas,Colonia verano · Enero · Mayores de 3 años,4 semanas,9000
+colonia-febrero-menores-de-3-anos.por-dia,Colonia verano · Febrero · Menores de 3 años,Por día,1050
+colonia-febrero-menores-de-3-anos.1-semana,Colonia verano · Febrero · Menores de 3 años,1 semana,5300
+colonia-febrero-menores-de-3-anos.2-semanas,Colonia verano · Febrero · Menores de 3 años,2 semanas,6900
+colonia-febrero-menores-de-3-anos.3-semanas,Colonia verano · Febrero · Menores de 3 años,3 semanas,8500
+colonia-febrero-mayores-de-3-anos.por-dia,Colonia verano · Febrero · Mayores de 3 años,Por día,850
+colonia-febrero-mayores-de-3-anos.1-semana,Colonia verano · Febrero · Mayores de 3 años,1 semana,4300
+colonia-febrero-mayores-de-3-anos.2-semanas,Colonia verano · Febrero · Mayores de 3 años,2 semanas,5950
+colonia-febrero-mayores-de-3-anos.3-semanas,Colonia verano · Febrero · Mayores de 3 años,3 semanas,7560
+colonia-diciembre-menores-de-3-anos.turno-4-h-por-dia,Colonia verano · Diciembre · Menores de 3 años,Turno (4 h por día),6500
+colonia-diciembre-menores-de-3-anos.turno-y-medio,Colonia verano · Diciembre · Menores de 3 años,Turno y medio,9750
+colonia-diciembre-menores-de-3-anos.doble-turno,Colonia verano · Diciembre · Menores de 3 años,Doble turno,12000
+colonia-diciembre-mayores-de-3-anos.turno-4-h-por-dia,Colonia verano · Diciembre · Mayores de 3 años,Turno (4 h por día),5400
+colonia-diciembre-mayores-de-3-anos.turno-y-medio,Colonia verano · Diciembre · Mayores de 3 años,Turno y medio,8100
+colonia-diciembre-mayores-de-3-anos.doble-turno,Colonia verano · Diciembre · Mayores de 3 años,Doble turno,9000
+colonia-extras-inscripcion-y-matricula.noviembre-socios,Colonia verano · Inscripción y extras · Inscripción y matrícula,Noviembre · socios,1500
+colonia-extras-inscripcion-y-matricula.noviembre-no-socios,Colonia verano · Inscripción y extras · Inscripción y matrícula,Noviembre · no socios,1800
+colonia-extras-inscripcion-y-matricula.hasta-el-15-12,Colonia verano · Inscripción y extras · Inscripción y matrícula,Hasta el 15/12,1800
+colonia-extras-inscripcion-y-matricula.hasta-el-30-12,Colonia verano · Inscripción y extras · Inscripción y matrícula,Hasta el 30/12,1950
+colonia-extras-inscripcion-y-matricula.enero,Colonia verano · Inscripción y extras · Inscripción y matrícula,Enero,2100
+colonia-extras-plan-comedor.durante-diciembre,Colonia verano · Inscripción y extras · Plan comedor,Durante diciembre,1100
+colonia-extras-plan-comedor.mensual,Colonia verano · Inscripción y extras · Plan comedor,Mensual,2200
+colonia-extras-plan-comedor.toda-la-temporada,Colonia verano · Inscripción y extras · Plan comedor,Toda la temporada,3800
+colonia-extras-extension-horaria.ingreso-antes-del-turno,Colonia verano · Inscripción y extras · Extensión horaria,Ingreso antes del turno,1600
+colonia-invierno-por-dia.menores-de-3-anos,Colonia invierno · Por día,Menores de 3 años,
+colonia-invierno-por-dia.mayores-de-3-anos,Colonia invierno · Por día,Mayores de 3 años,
+colonia-invierno-por-semana.menores-de-3-anos,Colonia invierno · Por semana,Menores de 3 años,
+colonia-invierno-por-semana.mayores-de-3-anos,Colonia invierno · Por semana,Mayores de 3 años,
+colonia-invierno-toda-la-edicion.menores-de-3-anos,Colonia invierno · Toda la edición,Menores de 3 años,
+colonia-invierno-toda-la-edicion.mayores-de-3-anos,Colonia invierno · Toda la edición,Mayores de 3 años,

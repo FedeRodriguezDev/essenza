@@ -25,7 +25,7 @@
       <a class="nav__link" href="colonia.html">Colonia de vacaciones</a>
       <a class="nav__link" href="index.html#cumples">Cumpleaños</a>
       <a class="nav__link" href="#contacto">Contacto</a>
-      <a class="btn btn--primary btn--sm" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Agendá una clase de prueba</a>
+      <a class="btn btn--primary btn--sm" href="https://wa.me/598XXXXXXXX" data-wa="general" target="_blank" rel="noopener">Agendá una clase de prueba</a>
     </div>
   </nav>
 </header>
@@ -62,7 +62,7 @@
       <aside class="side">
         <span class="side__label">Beneficios</span>
         <ul class="ticks"><li>Flexibilidad y movilidad</li><li>Menos estrés y mejor descanso</li><li>Conciencia corporal</li></ul>
-        <a class="btn btn--primary" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Reservar clase de prueba</a>
+        <a class="btn btn--primary" href="https://wa.me/598XXXXXXXX" data-wa="general" target="_blank" rel="noopener">Reservar clase de prueba</a>
       </aside>
     </div>
 <div class="panel" id="panel-ninos" role="tabpanel" aria-labelledby="tab-ninos" hidden>
@@ -74,7 +74,7 @@
       <aside class="side">
         <span class="side__label">Beneficios</span>
         <ul class="ticks"><li>Concentración y calma</li><li>Equilibrio y coordinación</li><li>Un espacio de juego sin pantallas</li></ul>
-        <a class="btn btn--primary" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Reservar clase de prueba</a>
+        <a class="btn btn--primary" href="https://wa.me/598XXXXXXXX" data-wa="general" target="_blank" rel="noopener">Reservar clase de prueba</a>
       </aside>
     </div>
 <div class="panel" id="panel-alquiler" role="tabpanel" aria-labelledby="tab-alquiler" hidden>
@@ -86,7 +86,7 @@
       <aside class="side">
         <span class="side__label">Beneficios</span>
         <ul class="ticks"><li>Espacio amplio junto al río</li><li>Ideal para talleres y encuentros</li><li>Descuento para socios</li></ul>
-        <a class="btn btn--primary" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Reservar clase de prueba</a>
+        <a class="btn btn--primary" href="https://wa.me/598XXXXXXXX" data-wa="general" target="_blank" rel="noopener">Reservar clase de prueba</a>
       </aside>
     </div>
     </div>
@@ -108,7 +108,7 @@
     </div>
     <!-- TODO: cargar horarios reales. Recomendado: leerlos de una planilla publicada (Google Sheets → CSV). -->
     <div class="table-wrap" data-reveal="2">
-      <table class="table table--wide">
+      <table class="table table--wide" data-horarios="domo">
         <caption class="sr-only">Horarios semanales de Domo</caption>
         <thead><tr><th scope="col">Hora</th><th scope="col">Lun</th><th scope="col">Mar</th><th scope="col">Mié</th><th scope="col">Jue</th><th scope="col">Vie</th><th scope="col">Sáb</th></tr></thead>
         <tbody><tr><th scope="row">[HH:MM]</th><td>Yoga</td><td>Stretching</td><td>Yoga</td><td>Stretching</td><td>Yoga</td><td class="gift">Yoga niños gratis</td></tr><tr><th scope="row">[HH:MM]</th><td>Yoga niños</td><td>—</td><td>Yoga niños</td><td>—</td><td>—</td><td>—</td></tr></tbody>
@@ -127,7 +127,7 @@
   <span class="leaf leaf--br leaf--turquesa leaf--soft" aria-hidden="true"></span>
   <div class="wrap cta-row">
     <h2 class="h2" data-reveal="1">Probá una clase sin compromiso.</h2>
-    <a class="btn btn--verde" data-reveal="2" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+    <a class="btn btn--verde" data-reveal="2" href="https://wa.me/598XXXXXXXX" data-wa="general" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
   </div>
 </section>
 <section class="section--tight">
@@ -143,18 +143,18 @@
     <div class="footer__brand" data-reveal="1">
       <img src="img/logo-essenza-negativo.png" alt="Essenza" width="170" height="40">
       <p>Somos movimiento.</p>
-      <a class="btn btn--verde" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+      <a class="btn btn--verde" href="https://wa.me/598XXXXXXXX" data-wa="general" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
     </div>
     <div class="footer__info" data-reveal="2">
       <strong>Dónde</strong>
-      <span>[DIRECCIÓN] — Predio del Rowing</span>
+      <span><span data-dato="direccion">[DIRECCIÓN]</span> — Predio del Rowing</span>
       <span>Colonia del Sacramento</span>
       <strong>Horario</strong>
-      <span>Lunes a viernes [HORA–HORA]</span>
-      <span>Sábados [HORA–HORA]</span>
+      <span>Lunes a viernes <span data-dato="horario_semana">[HORA–HORA]</span></span>
+      <span>Sábados <span data-dato="horario_sabado">[HORA–HORA]</span></span>
       <strong>Contacto</strong>
-      <span>WhatsApp [NÚMERO]</span>
-      <span>Instagram <a href="https://instagram.com/" target="_blank" rel="noopener">[@USUARIO]</a></span>
+      <span>WhatsApp <span data-dato="whatsapp_texto">[NÚMERO]</span></span>
+      <span>Instagram <a href="https://instagram.com/" target="_blank" rel="noopener" data-dato="instagram">[@USUARIO]</a></span>
     </div>
     <div class="footer__map ph--azul" data-reveal="3">
       <!-- TODO: reemplazar por el iframe de Google Maps del predio -->
@@ -167,6 +167,7 @@
   </div>
 </footer>
 </div>
+<script src="js/datos.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

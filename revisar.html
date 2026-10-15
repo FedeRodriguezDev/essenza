@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Revisión de datos · Essenza</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  .rv { padding-block: 48px 96px; display: flex; flex-direction: column; gap: 28px; }
+  .rv h1 { font-size: clamp(30px, 4vw, 44px); color: var(--azul); }
+  .rv h2 { font-size: 22px; color: var(--azul); margin-bottom: 12px; }
+  .rv__sum { display: flex; flex-wrap: wrap; gap: 12px; }
+  .rv__pill { padding: 10px 16px; border-radius: 999px; font-weight: 600; font-size: 15px; }
+  .ok { background: #DDF5D3; color: #1F5A12; }
+  .pend { background: var(--amarillo); color: #5A4600; }
+  .err { background: #FFE0D1; color: #8A2E00; }
+  .rv__box { border: 1px solid var(--borde); border-radius: 20px; padding: 24px; background: var(--blanco); }
+  .rv table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .rv td, .rv th { text-align: left; padding: 8px 10px; border-top: 1px solid var(--borde); vertical-align: top; }
+  .rv th { color: var(--texto-2); font-weight: 600; border-top: 0; }
+  .rv code { font-size: 13px; background: var(--suave); padding: 2px 6px; border-radius: 6px; }
+  .rv__tag { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+  .rv__wrap { overflow-x: auto; }
+  .rv .btn { align-self: flex-start; }
+</style>
+</head>
+<body>
+<div class="site">
+<main class="wrap rv">
+  <div class="stack" style="gap: 10px">
+    <img src="img/logo-essenza.png" alt="Essenza" width="160" height="38" style="height: 34px; width: auto">
+    <h1>Revisión de datos</h1>
+    <p class="muted">Lee la planilla en este momento (sin caché) y revisa las páginas. Corré esta revisión después de cada cambio en la planilla y antes de lanzar el sitio. Esta página no aparece en el menú ni en Google.</p>
+    <button class="btn btn--primary" type="button" id="rv-run">Volver a revisar</button>
+  </div>
+  <div class="rv__sum" id="rv-sum" aria-live="polite"></div>
+  <section class="rv__box"><h2>Conexión con la planilla</h2><div id="rv-conn"></div></section>
+  <section class="rv__box"><h2>Precios</h2><div class="rv__wrap" id="rv-precios"></div></section>
+  <section class="rv__box"><h2>Datos generales</h2><div class="rv__wrap" id="rv-datos"></div></section>
+  <section class="rv__box"><h2>Horarios</h2><div class="rv__wrap" id="rv-horarios"></div></section>
+  <section class="rv__box"><h2>Pendientes en las páginas</h2><p class="muted" style="margin-bottom: 12px">Textos entre corchetes que siguen en el HTML y que la planilla no reemplaza.</p><div class="rv__wrap" id="rv-paginas"></div></section>
+</main>
+</div>
+<script src="js/datos.js"></script>
+<script>
+var EXPECTED = {"precios": {"aquagym-natacion.1-vez-por-semana": "Piscina · Aquagym y natación · 1 vez por semana", "aquagym-natacion.2-veces-por-semana": "Piscina · Aquagym y natación · 2 veces por semana", "aquagym-natacion.3-veces-por-semana": "Piscina · Aquagym y natación · 3 veces por semana", "pile-libre.2-veces-por-semana": "Piscina · Pile libre · 2 veces por semana", "pile-libre.3-veces-por-semana": "Piscina · Pile libre · 3 veces por semana", "gym-profesor.2-veces-por-semana": "Gym · Gym con profesor · 2 veces por semana", "gym-profesor.3-veces-por-semana": "Gym · Gym con profesor · 3 veces por semana", "gym-profesor.4-veces-por-semana": "Gym · Gym con profesor · 4 veces por semana", "gym-libre.mensual": "Gym · Gym libre · Mensual", "pilates-mat.2-veces-por-semana": "Gym · Pilates Mat · 2 veces por semana", "pilates-mat.3-veces-por-semana": "Gym · Pilates Mat · 3 veces por semana", "pilates-studio.1-vez-por-semana": "Pilates Studio · 1 vez por semana", "pilates-studio.2-veces-por-semana": "Pilates Studio · 2 veces por semana", "pilates-studio.3-veces-por-semana": "Pilates Studio · 3 veces por semana", "pilates-reformer.1-vez-por-semana": "Pilates Reformer · 1 vez por semana", "pilates-reformer.2-veces-por-semana": "Pilates Reformer · 2 veces por semana", "combo-gym.1-vez-por-semana": "Combinar · sumar Gym · 1 vez por semana", "combo-gym.2-veces-por-semana": "Combinar · sumar Gym · 2 veces por semana", "combo-aquagym.1-vez-por-semana": "Combinar · sumar Aquagym · 1 vez por semana", "combo-aquagym.2-veces-por-semana": "Combinar · sumar Aquagym · 2 veces por semana", "combo-reformer.1-vez-por-semana": "Combinar · sumar Pilates Reformer · 1 vez por semana", "combo-reformer.2-veces-por-semana": "Combinar · sumar Pilates Reformer · 2 veces por semana", "colonia-enero-menores-de-3-anos.por-dia": "Colonia verano · Enero · Menores de 3 años · Por día", "colonia-enero-menores-de-3-anos.1-semana": "Colonia verano · Enero · Menores de 3 años · 1 semana", "colonia-enero-menores-de-3-anos.2-semanas": "Colonia verano · Enero · Menores de 3 años · 2 semanas", "colonia-enero-menores-de-3-anos.3-semanas": "Colonia verano · Enero · Menores de 3 años · 3 semanas", "colonia-enero-menores-de-3-anos.4-semanas": "Colonia verano · Enero · Menores de 3 años · 4 semanas", "colonia-enero-mayores-de-3-anos.por-dia": "Colonia verano · Enero · Mayores de 3 años · Por día", "colonia-enero-mayores-de-3-anos.1-semana": "Colonia verano · Enero · Mayores de 3 años · 1 semana", "colonia-enero-mayores-de-3-anos.2-semanas": "Colonia verano · Enero · Mayores de 3 años · 2 semanas", "colonia-enero-mayores-de-3-anos.3-semanas": "Colonia verano · Enero · Mayores de 3 años · 3 semanas", "colonia-enero-mayores-de-3-anos.4-semanas": "Colonia verano · Enero · Mayores de 3 años · 4 semanas", "colonia-febrero-menores-de-3-anos.por-dia": "Colonia verano · Febrero · Menores de 3 años · Por día", "colonia-febrero-menores-de-3-anos.1-semana": "Colonia verano · Febrero · Menores de 3 años · 1 semana", "colonia-febrero-menores-de-3-anos.2-semanas": "Colonia verano · Febrero · Menores de 3 años · 2 semanas", "colonia-febrero-menores-de-3-anos.3-semanas": "Colonia verano · Febrero · Menores de 3 años · 3 semanas", "colonia-febrero-mayores-de-3-anos.por-dia": "Colonia verano · Febrero · Mayores de 3 años · Por día", "colonia-febrero-mayores-de-3-anos.1-semana": "Colonia verano · Febrero · Mayores de 3 años · 1 semana", "colonia-febrero-mayores-de-3-anos.2-semanas": "Colonia verano · Febrero · Mayores de 3 años · 2 semanas", "colonia-febrero-mayores-de-3-anos.3-semanas": "Colonia verano · Febrero · Mayores de 3 años · 3 semanas", "colonia-diciembre-menores-de-3-anos.turno-4-h-por-dia": "Colonia verano · Diciembre · Menores de 3 años · Turno (4 h por día)", "colonia-diciembre-menores-de-3-anos.turno-y-medio": "Colonia verano · Diciembre · Menores de 3 años · Turno y medio", "colonia-diciembre-menores-de-3-anos.doble-turno": "Colonia verano · Diciembre · Menores de 3 años · Doble turno", "colonia-diciembre-mayores-de-3-anos.turno-4-h-por-dia": "Colonia verano · Diciembre · Mayores de 3 años · Turno (4 h por día)", "colonia-diciembre-mayores-de-3-anos.turno-y-medio": "Colonia verano · Diciembre · Mayores de 3 años · Turno y medio", "colonia-diciembre-mayores-de-3-anos.doble-turno": "Colonia verano · Diciembre · Mayores de 3 años · Doble turno", "colonia-extras-inscripcion-y-matricula.noviembre-socios": "Colonia verano · Inscripción y extras · Inscripción y matrícula · Noviembre · socios", "colonia-extras-inscripcion-y-matricula.noviembre-no-socios": "Colonia verano · Inscripción y extras · Inscripción y matrícula · Noviembre · no socios", "colonia-extras-inscripcion-y-matricula.hasta-el-15-12": "Colonia verano · Inscripción y extras · Inscripción y matrícula · Hasta el 15/12", "colonia-extras-inscripcion-y-matricula.hasta-el-30-12": "Colonia verano · Inscripción y extras · Inscripción y matrícula · Hasta el 30/12", "colonia-extras-inscripcion-y-matricula.enero": "Colonia verano · Inscripción y extras · Inscripción y matrícula · Enero", "colonia-extras-plan-comedor.durante-diciembre": "Colonia verano · Inscripción y extras · Plan comedor · Durante diciembre", "colonia-extras-plan-comedor.mensual": "Colonia verano · Inscripción y extras · Plan comedor · Mensual", "colonia-extras-plan-comedor.toda-la-temporada": "Colonia verano · Inscripción y extras · Plan comedor · Toda la temporada", "colonia-extras-extension-horaria.ingreso-antes-del-turno": "Colonia verano · Inscripción y extras · Extensión horaria · Ingreso antes del turno", "colonia-invierno-por-dia.menores-de-3-anos": "Colonia invierno · Por día · Menores de 3 años", "colonia-invierno-por-dia.mayores-de-3-anos": "Colonia invierno · Por día · Mayores de 3 años", "colonia-invierno-por-semana.menores-de-3-anos": "Colonia invierno · Por semana · Menores de 3 años", "colonia-invierno-por-semana.mayores-de-3-anos": "Colonia invierno · Por semana · Mayores de 3 años", "colonia-invierno-toda-la-edicion.menores-de-3-anos": "Colonia invierno · Toda la edición · Menores de 3 años", "colonia-invierno-toda-la-edicion.mayores-de-3-anos": "Colonia invierno · Toda la edición · Mayores de 3 años"}, "datos": [{"clave": "modo_precios", "desc": "Cómo se muestran los precios en todo el sitio", "opciones": ["completos", "desde", "ocultos"], "opcional": false, "tel": false}, {"clave": "colonia_temporada", "desc": "Edición de la colonia con inscripciones abiertas", "opciones": ["verano", "invierno", "ninguna"], "opcional": false, "tel": false}, {"clave": "banda_verano_etiqueta", "desc": "Etiqueta naranja de la banda de la home (verano)", "opciones": null, "opcional": false, "tel": false}, {"clave": "banda_verano_texto", "desc": "Texto de la banda de la home (verano)", "opciones": null, "opcional": false, "tel": false}, {"clave": "banda_invierno_etiqueta", "desc": "Etiqueta naranja de la banda de la home (invierno)", "opciones": null, "opcional": false, "tel": false}, {"clave": "banda_invierno_texto", "desc": "Texto de la banda de la home (invierno)", "opciones": null, "opcional": false, "tel": false}, {"clave": "whatsapp_general", "desc": "WhatsApp general de Essenza (598 + número sin el 0)", "opciones": null, "opcional": false, "tel": true}, {"clave": "whatsapp_natacion", "desc": "WhatsApp de natación", "opciones": null, "opcional": false, "tel": true}, {"clave": "whatsapp_colonia", "desc": "WhatsApp de la colonia", "opciones": null, "opcional": false, "tel": true}, {"clave": "whatsapp_texto", "desc": "Número que se lee en el pie, ej. 098 000 000", "opciones": null, "opcional": false, "tel": false}, {"clave": "direccion", "desc": "Dirección del predio", "opciones": null, "opcional": false, "tel": false}, {"clave": "horario_semana", "desc": "Horario de lunes a viernes, ej. 7:00 a 22:00", "opciones": null, "opcional": false, "tel": false}, {"clave": "horario_sabado", "desc": "Horario de los sábados", "opciones": null, "opcional": false, "tel": false}, {"clave": "instagram", "desc": "Usuario de Instagram, ej. @essenza.colonia", "opciones": null, "opcional": false, "tel": false}, {"clave": "colonia_verano_fechas", "desc": "Fechas de la colonia de verano", "opciones": null, "opcional": false, "tel": false}, {"clave": "colonia_invierno_fechas", "desc": "Fechas de la colonia de invierno", "opciones": null, "opcional": false, "tel": false}, {"clave": "colonia_invierno_horarios", "desc": "Turnos y horarios de la colonia de invierno", "opciones": null, "opcional": false, "tel": false}, {"clave": "colonia_invierno_descripcion", "desc": "Descripción del programa de invierno", "opciones": null, "opcional": false, "tel": false}], "actividades": ["piscina", "gym", "domo", "pilates-studio", "pilates-reformer"], "paginas": ["colonia.html", "domo.html", "gym.html", "index.html", "pilates-reformer.html", "pilates-studio.html", "piscina.html", "planes.html"]};
+(function () {
+  var U = window.EssenzaDatos;
+  var count = { ok: 0, pend: 0, err: 0 };
+  function tag(kind, txt) { count[kind]++; return '<span class="rv__tag ' + kind + '">' + txt + '</span>'; }
+  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function table(head, rows) {
+    return '<table><thead><tr>' + head.map(function (h) { return '<th>' + h + '</th>'; }).join('') + '</tr></thead><tbody>' +
+      rows.map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '</tr>'; }).join('') + '</tbody></table>';
+  }
+  function fetchSheet(name) {
+    var url = ESSENZA_HOJAS[name];
+    if (!url) return Promise.resolve({ name: name, status: 'sin-url' });
+    return fetch(url, { cache: 'no-store' }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.text();
+    }).then(function (t) {
+      if (/^\s*</.test(t)) throw new Error('La URL devuelve una página, no un CSV. ¿Elegiste el formato .csv al publicar?');
+      return { name: name, status: 'ok', data: U.toObjects(U.parseCSV(t)) };
+    }).catch(function (e) { return { name: name, status: 'error', msg: e.message }; });
+  }
+
+  function run() {
+    count = { ok: 0, pend: 0, err: 0 };
+    document.getElementById('rv-sum').innerHTML = '<span class="rv__pill pend">Revisando…</span>';
+    Promise.all(['precios', 'datos', 'horarios'].map(fetchSheet)).then(function (res) {
+      var by = {}; res.forEach(function (r) { by[r.name] = r; });
+
+      // conexión
+      document.getElementById('rv-conn').innerHTML = table(['Pestaña', 'Estado'], res.map(function (r) {
+        if (r.status === 'ok') return ['<code>' + r.name + '</code>', tag('ok', 'Conectada') + ' ' + r.data.length + ' filas'];
+        if (r.status === 'sin-url') return ['<code>' + r.name + '</code>', tag('pend', 'Sin enlace') + ' Pegá el enlace CSV en <code>js/datos.js</code>. Mientras tanto se usan los datos del HTML.'];
+        return ['<code>' + r.name + '</code>', tag('err', 'No responde') + ' ' + esc(r.msg)];
+      }));
+
+      // precios
+      var P = by.precios.status === 'ok' ? by.precios.data : null;
+      var pm = {}; (P || []).forEach(function (r) { pm[r.id] = r; });
+      var prow = Object.keys(EXPECTED.precios).map(function (id) {
+        var label = EXPECTED.precios[id];
+        if (!P) return [esc(label), '<code>' + id + '</code>', '—', tag('pend', 'Sin planilla')];
+        var r = pm[id];
+        if (!r) return [esc(label), '<code>' + id + '</code>', '—', tag('err', 'Falta la fila')];
+        if (!r.precio) return [esc(label), '<code>' + id + '</code>', '—', tag('pend', 'Sin precio')];
+        var n = U.num(r.precio);
+        if (!n) return [esc(label), '<code>' + id + '</code>', esc(r.precio), tag('err', 'No es un número')];
+        return [esc(label), '<code>' + id + '</code>', U.money(n), tag('ok', 'OK')];
+      });
+      (P || []).forEach(function (r) {
+        if (r.id && !EXPECTED.precios[r.id]) prow.push([esc(r.plan || ''), '<code>' + esc(r.id) + '</code>', esc(r.precio), tag('err', 'id desconocido: ¿error de tipeo?')]);
+      });
+      document.getElementById('rv-precios').innerHTML = table(['Plan', 'id', 'Precio', 'Estado'], prow);
+
+      // datos
+      var D = by.datos.status === 'ok' ? by.datos.data : null;
+      var dm = {}; (D || []).forEach(function (r) { dm[r.clave] = r.valor; });
+      var drow = EXPECTED.datos.map(function (k) {
+        var v = D ? (dm[k.clave] || '') : null, st;
+        if (!D) st = tag('pend', 'Sin planilla');
+        else if (!(k.clave in dm)) st = tag('err', 'Falta la fila');
+        else if (!v) st = k.opcional ? tag('ok', 'Vacío (opcional)') : tag('pend', 'Vacío');
+        else if (k.opciones && k.opciones.indexOf(v.toLowerCase()) < 0) st = tag('err', 'Valor no válido: usar ' + k.opciones.join(' / '));
+        else if (k.tel && v.replace(/[^\d]/g, '').length < 11) st = tag('err', 'Teléfono incompleto: formato 598 + número sin el 0');
+        else st = tag('ok', 'OK');
+        return ['<code>' + k.clave + '</code>', esc(k.desc), v === null ? '—' : esc(v), st];
+      });
+      document.getElementById('rv-datos').innerHTML = table(['Clave', 'Para qué es', 'Valor', 'Estado'], drow);
+
+      // horarios
+      var H = by.horarios.status === 'ok' ? by.horarios.data : null;
+      var hrow = EXPECTED.actividades.map(function (a) {
+        if (!H) return ['<code>' + a + '</code>', '—', tag('pend', 'Sin planilla')];
+        var rows = H.filter(function (r) { return r.actividad === a; });
+        var pend = rows.filter(function (r) { return !r.hora || /\[/.test(r.hora); }).length;
+        if (!rows.length) return ['<code>' + a + '</code>', '0', tag('pend', 'Sin horarios: se muestran los del HTML')];
+        if (pend) return ['<code>' + a + '</code>', rows.length, tag('pend', pend + ' filas sin hora')];
+        return ['<code>' + a + '</code>', rows.length, tag('ok', 'OK')];
+      });
+      (H || []).forEach(function (r) {
+        if (r.actividad && EXPECTED.actividades.indexOf(r.actividad) < 0) hrow.push(['<code>' + esc(r.actividad) + '</code>', '1', tag('err', 'Actividad desconocida')]);
+      });
+      document.getElementById('rv-horarios').innerHTML = table(['Actividad', 'Filas', 'Estado'], hrow);
+
+      // páginas
+      return Promise.all(EXPECTED.paginas.map(function (p) {
+        return fetch(p, { cache: 'no-store' }).then(function (r) { return r.text(); }).then(function (html) {
+          var doc = new DOMParser().parseFromString(html, 'text/html');
+          var found = [];
+          var walker = doc.createTreeWalker(doc.body, NodeFilter.SHOW_TEXT);
+          while (walker.nextNode()) {
+            var n = walker.currentNode, m = n.nodeValue.match(/\[[^\]\n]{1,200}\]/g);
+            if (!m) continue;
+            var holder = n.parentElement.closest('[data-dato]');
+            var covered = holder && dm[holder.getAttribute('data-dato')];
+            var price = n.parentElement.closest('[data-precio],[data-desde]');
+            if (covered || price) continue;
+            m.forEach(function (t) { found.push(t); });
+          }
+          return { p: p, found: found };
+        }).catch(function () { return { p: p, found: null }; });
+      })).then(function (pages) {
+        var rows = [];
+        pages.forEach(function (x) {
+          if (x.found === null) { rows.push(['<code>' + x.p + '</code>', '—', tag('err', 'No se pudo abrir')]); return; }
+          if (!x.found.length) { rows.push(['<code>' + x.p + '</code>', '—', tag('ok', 'Sin pendientes')]); return; }
+          var uniq = x.found.filter(function (v, i, a) { return a.indexOf(v) === i; });
+          rows.push(['<code>' + x.p + '</code>', uniq.map(esc).join('<br>'), tag('pend', x.found.length + ' pendientes')]);
+        });
+        document.getElementById('rv-paginas').innerHTML = table(['Página', 'Textos pendientes', 'Estado'], rows);
+      });
+    }).then(function () {
+      var listo = count.err === 0 && count.pend === 0;
+      document.getElementById('rv-sum').innerHTML =
+        '<span class="rv__pill ' + (listo ? 'ok' : (count.err ? 'err' : 'pend')) + '">' + (listo ? 'Listo para publicar' : 'Todavía no está listo') + '</span>' +
+        '<span class="rv__pill ok">' + count.ok + ' correctos</span>' +
+        '<span class="rv__pill pend">' + count.pend + ' pendientes</span>' +
+        '<span class="rv__pill err">' + count.err + ' errores</span>';
+    });
+  }
+  document.getElementById('rv-run').addEventListener('click', run);
+  run();
+})();
+</script>
+</body>
+</html>

@@ -25,7 +25,7 @@
       <a class="nav__link" href="colonia.html">Colonia de vacaciones</a>
       <a class="nav__link" href="index.html#cumples">Cumpleaños</a>
       <a class="nav__link" href="#contacto">Contacto</a>
-      <a class="btn btn--primary btn--sm" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Agendá una clase de prueba</a>
+      <a class="btn btn--primary btn--sm" href="https://wa.me/598XXXXXXXX" data-wa="general" target="_blank" rel="noopener">Agendá una clase de prueba</a>
     </div>
   </nav>
 </header>
@@ -58,10 +58,10 @@
 
 <!-- TEMPORADA DE COLONIA: cambiar el texto según la edición con inscripciones abiertas
      (verano: octubre a febrero · invierno: mayo a julio). Quitarla en marzo–abril y agosto–septiembre. -->
-<a class="season" href="colonia.html">
+<a class="season" href="colonia.html" data-season>
   <span class="wrap season__inner">
-    <span class="season__tag">Colonia de verano 2026–2027</span>
-    <span class="season__text"><b>Inscripciones abiertas.</b> 50% de descuento para hermanos inscribiéndote en octubre y noviembre.</span>
+    <span class="season__tag" data-season-tag>Colonia de verano 2026–2027</span>
+    <span class="season__text" data-season-text>Inscripciones abiertas. 50% de descuento para hermanos inscribiéndote en octubre y noviembre.</span>
     <span class="season__cta">Ver la colonia <span class="arrow" aria-hidden="true">→</span></span>
   </span>
 </a>
@@ -86,8 +86,8 @@
     <div class="chips" role="group" aria-label="Filtrar actividades por público" data-reveal="2"><button class="chip" type="button" data-filter="todos" aria-pressed="true">Todos</button><button class="chip" type="button" data-filter="bebes" aria-pressed="false">Bebés</button><button class="chip" type="button" data-filter="ninos" aria-pressed="false">Niños</button><button class="chip" type="button" data-filter="embarazadas" aria-pressed="false">Embarazadas</button><button class="chip" type="button" data-filter="adultos" aria-pressed="false">Adultos</button><button class="chip" type="button" data-filter="mas50" aria-pressed="false">+50</button><button class="chip" type="button" data-filter="familias" aria-pressed="false">Familias</button></div>
     <p id="actividades" class="muted" style="font-size: 17px"><span id="filtro-resultado" aria-live="polite" data-todos="Seis propuestas para moverse todo el año y en vacaciones.">Seis propuestas para moverse todo el año y en vacaciones.</span></p>
     <div class="cards">
-<a class="card" href="colonia.html" data-aud="bebes ninos" data-reveal="1">
-        <div class="card__media"><img src="img/colonia-risa.jpg" alt="Niño riéndose a carcajadas con la remera de la colonia" loading="lazy"><span class="card__tag bg-colonia">Colonia</span><span class="card__ribbon">Inscripciones abiertas · verano</span></div>
+<a class="card" href="colonia.html" data-aud="bebes ninos" data-reveal="1" data-colonia-card>
+        <div class="card__media"><img src="img/colonia-risa.jpg" alt="Niño riéndose a carcajadas con la remera de la colonia" loading="lazy"><span class="card__tag bg-colonia">Colonia</span><span class="card__ribbon" data-ribbon>Inscripciones abiertas · verano</span></div>
         <div class="card__body">
           <span class="card__who">Niños · Verano e invierno</span>
           <h3 class="h3" style="font-size: 28px">Colonia de vacaciones</h3>
@@ -105,7 +105,7 @@
           <span class="antes muted">Antes <b>Chapoteando</b></span>
           <p>Natación, aquagym, pile libre e hidroterapia para adultos. Natación por etapas para niños, bebés al agua, programa para embarazadas y pile en familia.</p>
           <ul class="ticks"><li>Impacto cero para las articulaciones</li><li>Grupos para cada etapa de la vida</li><li>Piscina climatizada todo el año</li></ul>
-          <div class="card__foot"><span class="muted p-num">desde $1.500 /mes</span><span class="muted p-hide">Consultá planes</span><span class="link-arrow">Conocé más <span class="arrow" aria-hidden="true">→</span></span></div>
+          <div class="card__foot"><span class="muted p-num">desde <span data-desde="aquagym-natacion,pile-libre">$1.500</span> /mes</span><span class="muted p-hide">Consultá planes</span><span class="link-arrow">Conocé más <span class="arrow" aria-hidden="true">→</span></span></div>
         </div>
       </a>
 <a class="card" href="gym.html" data-aud="ninos adultos mas50" data-reveal="3">
@@ -116,7 +116,7 @@
           <span class="antes muted">Antes <b>Coco</b></span>
           <p>Gym con profesor y gym libre, Pilates Mat y Gym +50. Clases personalizadas para niños.</p>
           <ul class="ticks"><li>Fuerza y masa muscular</li><li>Postura y prevención de lesiones</li><li>Plan según tu edad y objetivo</li></ul>
-          <div class="card__foot"><span class="muted p-num">desde $1.500 /mes</span><span class="muted p-hide">Consultá planes</span><span class="link-arrow">Conocé más <span class="arrow" aria-hidden="true">→</span></span></div>
+          <div class="card__foot"><span class="muted p-num">desde <span data-desde="gym-libre,gym-profesor,pilates-mat">$1.500</span> /mes</span><span class="muted p-hide">Consultá planes</span><span class="link-arrow">Conocé más <span class="arrow" aria-hidden="true">→</span></span></div>
         </div>
       </a>
 <a class="card" href="domo.html" data-aud="ninos adultos mas50" data-reveal="1">
@@ -138,7 +138,7 @@
           
           <p>Clases de Pilates en formato studio, con distintas frecuencias semanales.</p>
           <ul class="ticks"><li>Centro del cuerpo fuerte y estable</li><li>Mejor postura</li><li>Control y conciencia del movimiento</li></ul>
-          <div class="card__foot"><span class="muted p-num">desde $2.200 /mes</span><span class="muted p-hide">Consultá planes</span><span class="link-arrow">Conocé más <span class="arrow" aria-hidden="true">→</span></span></div>
+          <div class="card__foot"><span class="muted p-num">desde <span data-desde="pilates-studio">$2.200</span> /mes</span><span class="muted p-hide">Consultá planes</span><span class="link-arrow">Conocé más <span class="arrow" aria-hidden="true">→</span></span></div>
         </div>
       </a>
 <a class="card" href="pilates-reformer.html" data-aud="adultos mas50" data-reveal="3">
@@ -149,7 +149,7 @@
           
           <p>Entrenamiento guiado en reformer, con opciones de 1 o 2 veces por semana.</p>
           <ul class="ticks"><li>Fuerza sin impacto</li><li>Alineación corporal</li><li>Progresión guiada clase a clase</li></ul>
-          <div class="card__foot"><span class="muted p-num">desde $2.000 /mes</span><span class="muted p-hide">Consultá planes</span><span class="link-arrow">Conocé más <span class="arrow" aria-hidden="true">→</span></span></div>
+          <div class="card__foot"><span class="muted p-num">desde <span data-desde="pilates-reformer">$2.000</span> /mes</span><span class="muted p-hide">Consultá planes</span><span class="link-arrow">Conocé más <span class="arrow" aria-hidden="true">→</span></span></div>
         </div>
       </a>
     </div>
@@ -169,13 +169,13 @@
         <span class="tile__kicker">Animación</span>
         <h3>Cumpleaños y fiestas</h3>
         <p>Cumpleaños, actividades y fiestas para celebrar momentos especiales.</p>
-        <a class="link-arrow" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Consultar <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="link-arrow" href="https://wa.me/598XXXXXXXX" data-wa="general" target="_blank" rel="noopener">Consultar <span class="arrow" aria-hidden="true">→</span></a>
       </div>
       <div class="tile tile--aqua lined" data-reveal="2">
         <span class="tile__kicker">Alquiler</span>
         <h3>Salón y Domo</h3>
         <p>Un espacio para celebrar momentos especiales junto a familiares y amigos.</p>
-        <a class="link-arrow" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Consultar disponibilidad <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="link-arrow" href="https://wa.me/598XXXXXXXX" data-wa="general" target="_blank" rel="noopener">Consultar disponibilidad <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
   </div>
@@ -194,7 +194,7 @@
       <span class="tile__kicker">Los sábados, gratis</span>
       <div class="gratis__item"><strong>Aquagym para adultos</strong><span>Vení a probar la pileta, sin costo.</span></div>
       <div class="gratis__item"><strong>Yoga para niños</strong><span>Una clase para que descubran el Domo.</span></div>
-      <a class="btn btn--azul" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Reservar mi lugar</a>
+      <a class="btn btn--azul" href="https://wa.me/598XXXXXXXX" data-wa="general" target="_blank" rel="noopener">Reservar mi lugar</a>
     </div>
   </div>
 </section>
@@ -206,7 +206,7 @@
       <div class="head"><p class="eyebrow">Planes</p><h2 class="h2">Combinar es disfrutar</h2></div>
       <a class="link-arrow" href="planes.html">Ver planes y aranceles <span class="arrow" aria-hidden="true">→</span></a>
     </div>
-    <div class="minis"><a class="mini" href="planes.html" data-reveal="1"><span class="mini__kicker">Sin profesor</span><span class="mini__name">Gym libre</span><span class="mini__price p-num"> <b>$1.500</b> /mes</span><span class="mini__price p-hide"><b>Consultá</b></span></a><a class="mini" href="planes.html" data-reveal="2"><span class="mini__kicker">Pileta</span><span class="mini__name">Pile libre</span><span class="mini__price p-num">desde <b>$1.500</b> /mes</span><span class="mini__price p-hide"><b>Consultá</b></span></a><a class="mini" href="planes.html" data-reveal="3"><span class="mini__kicker">Con profesor</span><span class="mini__name">Gym</span><span class="mini__price p-num">desde <b>$1.800</b> /mes</span><span class="mini__price p-hide"><b>Consultá</b></span></a><a class="mini mini--destacado" href="planes.html" data-reveal="4"><span class="mini__kicker">Sumá una 2.ª actividad</span><span class="mini__name">Combiná</span><span class="mini__price p-num">desde <b>$500</b> /mes extra</span><span class="mini__price p-hide"><b>Consultá</b></span></a></div>
+    <div class="minis"><a class="mini" href="planes.html" data-reveal="1"><span class="mini__kicker">Sin profesor</span><span class="mini__name">Gym libre</span><span class="mini__price p-num"> <b data-desde="gym-libre">$1.500</b> /mes</span><span class="mini__price p-hide"><b>Consultá</b></span></a><a class="mini" href="planes.html" data-reveal="2"><span class="mini__kicker">Pileta</span><span class="mini__name">Pile libre</span><span class="mini__price p-num">desde <b data-desde="pile-libre">$1.500</b> /mes</span><span class="mini__price p-hide"><b>Consultá</b></span></a><a class="mini" href="planes.html" data-reveal="3"><span class="mini__kicker">Con profesor</span><span class="mini__name">Gym</span><span class="mini__price p-num">desde <b data-desde="gym-profesor">$1.800</b> /mes</span><span class="mini__price p-hide"><b>Consultá</b></span></a><a class="mini mini--destacado" href="planes.html" data-reveal="4"><span class="mini__kicker">Sumá una 2.ª actividad</span><span class="mini__name">Combiná</span><span class="mini__price p-num">desde <b data-desde="combo-gym,combo-aquagym,combo-reformer">$500</b> /mes extra</span><span class="mini__price p-hide"><b>Consultá</b></span></a></div>
   </div>
 </section>
 
@@ -228,18 +228,18 @@
     <div class="footer__brand" data-reveal="1">
       <img src="img/logo-essenza-negativo.png" alt="Essenza" width="170" height="40">
       <p>Somos movimiento.</p>
-      <a class="btn btn--verde" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+      <a class="btn btn--verde" href="https://wa.me/598XXXXXXXX" data-wa="general" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
     </div>
     <div class="footer__info" data-reveal="2">
       <strong>Dónde</strong>
-      <span>[DIRECCIÓN] — Predio del Rowing</span>
+      <span><span data-dato="direccion">[DIRECCIÓN]</span> — Predio del Rowing</span>
       <span>Colonia del Sacramento</span>
       <strong>Horario</strong>
-      <span>Lunes a viernes [HORA–HORA]</span>
-      <span>Sábados [HORA–HORA]</span>
+      <span>Lunes a viernes <span data-dato="horario_semana">[HORA–HORA]</span></span>
+      <span>Sábados <span data-dato="horario_sabado">[HORA–HORA]</span></span>
       <strong>Contacto</strong>
-      <span>WhatsApp [NÚMERO]</span>
-      <span>Instagram <a href="https://instagram.com/" target="_blank" rel="noopener">[@USUARIO]</a></span>
+      <span>WhatsApp <span data-dato="whatsapp_texto">[NÚMERO]</span></span>
+      <span>Instagram <a href="https://instagram.com/" target="_blank" rel="noopener" data-dato="instagram">[@USUARIO]</a></span>
     </div>
     <div class="footer__map ph--azul" data-reveal="3">
       <!-- TODO: reemplazar por el iframe de Google Maps del predio -->
@@ -252,6 +252,7 @@
   </div>
 </footer>
 </div>
+<script src="js/datos.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

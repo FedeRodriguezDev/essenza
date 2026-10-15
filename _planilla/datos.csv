@@ -1,0 +1,19 @@
+clave,valor,descripcion
+modo_precios,completos,Cómo se muestran los precios en todo el sitio
+colonia_temporada,verano,Edición de la colonia con inscripciones abiertas
+banda_verano_etiqueta,Colonia de verano 2026–2027,Etiqueta naranja de la banda de la home (verano)
+banda_verano_texto,Inscripciones abiertas. 50% de descuento para hermanos inscribiéndote en octubre y noviembre.,Texto de la banda de la home (verano)
+banda_invierno_etiqueta,Colonia de invierno 2027,Etiqueta naranja de la banda de la home (invierno)
+banda_invierno_texto,Inscripciones abiertas para las vacaciones de julio.,Texto de la banda de la home (invierno)
+whatsapp_general,,WhatsApp general de Essenza (598 + número sin el 0)
+whatsapp_natacion,59898177013,WhatsApp de natación
+whatsapp_colonia,59892222841,WhatsApp de la colonia
+whatsapp_texto,,"Número que se lee en el pie, ej. 098 000 000"
+direccion,,Dirección del predio
+horario_semana,,"Horario de lunes a viernes, ej. 7:00 a 22:00"
+horario_sabado,,Horario de los sábados
+instagram,,"Usuario de Instagram, ej. @essenza.colonia"
+colonia_verano_fechas,,Fechas de la colonia de verano
+colonia_invierno_fechas,,Fechas de la colonia de invierno
+colonia_invierno_horarios,,Turnos y horarios de la colonia de invierno
+colonia_invierno_descripcion,,Descripción del programa de invierno
