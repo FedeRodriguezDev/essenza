@@ -81,6 +81,18 @@
     root.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('is-in'); });
   }
 
+  /* ---------- Video de fondo ----------
+     Solo se reproduce en pantallas anchas, sin "reducir movimiento" y sin ahorro de datos.
+     En el resto de los casos queda la imagen fija (poster). */
+  var saveData = navigator.connection && navigator.connection.saveData;
+  var wide = window.matchMedia && window.matchMedia('(min-width: 861px)').matches;
+  document.querySelectorAll('video[data-autoplay]').forEach(function (v) {
+    if (reduce || saveData || !wide) return;
+    v.preload = 'auto';
+    var p = v.play();
+    if (p && p.catch) p.catch(function () {});
+  });
+
   /* ---------- Filtro "¿Para quién buscás?" ---------- */
   var chips = document.querySelectorAll('[data-filter]');
   if (chips.length) {

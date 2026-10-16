@@ -627,3 +627,23 @@ a:hover .arrow { transform: translateX(6px); }
 .edition h3 { font-size: clamp(26px, 2.6vw, 34px); }
 .edition .ticks { margin-top: 4px; }
 .tile--azul-t .ticks li::before { color: var(--verde); }
+
+/* =========================================================
+   Novedades y talleres
+   ========================================================= */
+.news { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 24px; }
+.news--page { grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); }
+.news-card { display: flex; flex-direction: column; background: var(--blanco); border: 1px solid var(--borde); border-radius: var(--radio); overflow: hidden; transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
+.news-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px -24px rgba(17, 55, 107, .4); }
+.news-card__img { aspect-ratio: 16 / 10; overflow: hidden; max-width: 100%; }
+.news-card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.news-card:hover .news-card__img img { transform: scale(1.05); }
+.news-card__body { display: flex; flex-direction: column; gap: 10px; padding: 24px 26px 28px; flex-grow: 1; }
+.news-card__date { align-self: flex-start; background: var(--amarillo); color: var(--azul); font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; }
+.news-card__title { font-size: 24px; line-height: 1.2; font-weight: 700; letter-spacing: -.02em; color: var(--azul); }
+.news-card__text { font-size: 15px; line-height: 1.6; }
+.news-card__place { font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--texto-2); }
+.news-card .btn { align-self: flex-start; margin-top: auto; }
+
+/* video del encabezado (Domo) */
+.act-hero__photo video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }

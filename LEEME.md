@@ -15,6 +15,7 @@ gym.html
 domo.html
 pilates-studio.html
 pilates-reformer.html
+novedades.html          Talleres y encuentros (se cargan desde la planilla)
 revisar.html            Revisión de datos (no está en el menú ni en Google)
 css/styles.css          Todos los estilos. Colores de marca como variables en :root
 js/datos.js             Lee la Google Sheet. Acá van los 3 enlaces CSV
@@ -25,13 +26,13 @@ _planilla/*.csv         Contenido inicial de la planilla (para importar una sola
 ## Puesta en marcha de la planilla (una sola vez, ~10 minutos)
 
 1. Creá una Google Sheet nueva en la cuenta de Juna, llamada "Essenza · datos web".
-2. Creá tres pestañas con estos nombres exactos: `precios`, `horarios`, `datos`.
+2. Creá cuatro pestañas con estos nombres exactos: `precios`, `horarios`, `datos`, `novedades`.
 3. En cada pestaña: Archivo › Importar › Subir el CSV correspondiente de `_planilla/` ›
    "Reemplazar la hoja actual".
 4. Publicá cada pestaña: Archivo › Compartir › Publicar en la Web › elegí la pestaña ›
    formato "Valores separados por comas (.csv)" › Publicar. Copiá el enlace.
-5. Pegá los tres enlaces en `js/datos.js`, en `ESSENZA_HOJAS`, y subí ese archivo al hosting.
-6. Abrí `tusitio/revisar.html`: las tres pestañas tienen que figurar como "Conectada".
+5. Pegá los cuatro enlaces en `js/datos.js`, en `ESSENZA_HOJAS`, y subí ese archivo al hosting.
+6. Abrí `tusitio/revisar.html`: las cuatro pestañas tienen que figurar como "Conectada".
 
 Recomendado en la planilla: en `datos`, poné listas desplegables (Datos › Validación de datos)
 para `modo_precios` (completos / desde / ocultos) y `colonia_temporada` (verano / invierno / ninguna),
@@ -58,6 +59,16 @@ guarda la planilla 10 minutos en su navegador. Para verlos ya, abrí la web en u
 **Después de cada cambio, abrí `revisar.html`.** Lee la planilla en el momento y marca:
 filas que faltan, precios que no son números, ids mal escritos, teléfonos incompletos,
 valores no válidos y textos entre corchetes que siguen pendientes en las páginas.
+
+- **Novedades y talleres** (pestaña `novedades`): una fila por taller o novedad.
+  - `visible`: si / no. `vence`: fecha AAAA-MM-DD; desde el día siguiente deja de mostrarse sola
+    (vacío = no vence, para propuestas fijas como Domo + Agua).
+  - `imagen`: nombre de un archivo subido a la carpeta `img/` por cPanel (ej. `taller-relax.jpg`),
+    o un enlace completo. Recomendado: horizontal, 1200 px de ancho, menos de 300 KB.
+  - `whatsapp`: número para reservar (598 + número sin el 0). `enlace`: si se completa, el botón va
+    a esa página en lugar de WhatsApp. `boton`: texto del botón.
+  - La home muestra las 3 primeras vigentes, en el orden de la planilla; `novedades.html` muestra todas.
+    Si no hay ninguna vigente, la sección de la home se oculta sola.
 
 ## Si la planilla falla
 

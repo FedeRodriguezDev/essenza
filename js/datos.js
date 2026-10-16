@@ -10,9 +10,10 @@
    elegí la pestaña › formato "Valores separados por comas (.csv)" › Publicar.
    Dejá un enlace vacío ('') para no usar esa pestaña. */
 var ESSENZA_HOJAS = {
-  precios:  '',
-  horarios: '',
-  datos:    ''
+  precios:   '',
+  horarios:  '',
+  datos:     '',
+  novedades: ''
 };
 
 (function () {
@@ -171,14 +172,89 @@ var ESSENZA_HOJAS = {
   }
 
   // expuesto para revisar.html
-  window.EssenzaDatos = { parseCSV: parseCSV, toObjects: toObjects, num: num, money: money };
+  /* ---------- novedades y talleres ---------- */
+  function today() {
+    var d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+  function vencida(v) { return /^\d{4}-\d{2}-\d{2}$/.test(v || '') && v < today(); }
+
+  function waGeneral() {
+    var a = document.querySelector('[data-wa="general"]');
+    return a ? a.href : '#contacto';
+  }
+  function newsCard(n) {
+    var art = document.createElement('article');
+    art.className = 'news-card';
+    if (n.vence) art.setAttribute('data-vence', n.vence);
+    if (n.imagen) {
+      var fig = document.createElement('div');
+      fig.className = 'news-card__img';
+      var img = document.createElement('img');
+      img.src = /^https?:\/\//.test(n.imagen) ? n.imagen : 'img/' + n.imagen;
+      img.alt = n.titulo || '';
+      img.loading = 'lazy';
+      fig.appendChild(img);
+      art.appendChild(fig);
+    }
+    var body = document.createElement('div');
+    body.className = 'news-card__body';
+    function add(tag, cls, txt) {
+      if (!txt) return;
+      var el = document.createElement(tag);
+      el.className = cls; el.textContent = txt;
+      body.appendChild(el);
+    }
+    add('span', 'news-card__date', n.fecha);
+    add('h3', 'news-card__title', n.titulo);
+    add('p', 'news-card__text', n.descripcion);
+    add('span', 'news-card__place', n.lugar);
+    var a = document.createElement('a');
+    a.className = 'btn btn--primary btn--sm';
+    var tel = String(n.whatsapp || '').replace(/[^\d]/g, '');
+    a.href = n.enlace || (tel.length >= 11 ? 'https://wa.me/' + tel : waGeneral());
+    if (/^https?:/.test(a.getAttribute('href'))) { a.target = '_blank'; a.rel = 'noopener'; }
+    a.textContent = n.boton || 'Consultar';
+    body.appendChild(a);
+    art.appendChild(body);
+    return art;
+  }
+  function applyNovedades(list) {
+    if (!list || !list.length) return;
+    var items = list.filter(function (n) { return (n.visible || 'si').toLowerCase().replace('í', 'i') === 'si' && n.titulo; });
+    document.querySelectorAll('[data-novedades]').forEach(function (box) {
+      box.textContent = '';
+      items.forEach(function (n) { box.appendChild(newsCard(n)); });
+    });
+  }
+  // oculta lo vencido, respeta data-max y oculta la sección si queda vacía
+  function refreshNovedades() {
+    document.querySelectorAll('[data-novedades]').forEach(function (box) {
+      var max = parseInt(box.getAttribute('data-max') || '99', 10), shown = 0;
+      box.querySelectorAll('.news-card').forEach(function (c) {
+        var ok = !vencida(c.getAttribute('data-vence')) && shown < max;
+        c.hidden = !ok;
+        if (ok) shown++;
+      });
+      var sec = box.closest('[data-novedades-section]');
+      if (sec) sec.hidden = shown === 0;
+      var empty = document.querySelector('[data-novedades-empty]');
+      if (empty) empty.hidden = shown !== 0;
+    });
+  }
+
+  window.EssenzaDatos = { parseCSV: parseCSV, toObjects: toObjects, num: num, money: money, vencida: vencida };
   if (!site) return;
 
+  refreshNovedades();
+
   /* ---------- arranque ---------- */
-  Promise.all([load('precios'), load('horarios'), load('datos')]).then(function (res) {
+  Promise.all([load('precios'), load('horarios'), load('datos'), load('novedades')]).then(function (res) {
     applyPrecios(res[0]);
     applyHorarios(res[1]);
     applyDatos(res[2]);
+    applyNovedades(res[3]);
+    refreshNovedades();
   });
 
 })();
