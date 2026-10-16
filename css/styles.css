@@ -647,3 +647,6 @@ a:hover .arrow { transform: translateX(6px); }
 
 /* video del encabezado (Domo) */
 .act-hero__photo video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* Isologo como separador de la franja infinita */
+.marquee__iso { height: 22px; width: auto; flex: none; display: block; }
